@@ -2,7 +2,7 @@ module Marlin
   module Actions
     class ReplicateKey < Base
       def call
-        @persister.read(@key)
+        # TODO
       end
     end
   end
