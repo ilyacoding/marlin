@@ -1,6 +1,6 @@
 module Marlin
   module Actions
-    class DeleteKey < Base
+    class DeleteKey < Marlin::Action
       def call
         @persister.delete(@key)
       end

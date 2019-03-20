@@ -1,6 +1,6 @@
 module Marlin
   module Actions
-    class ReadKey < Base
+    class ReadKey < Marlin::Action
       def call
         @persister.read(@key)
       end

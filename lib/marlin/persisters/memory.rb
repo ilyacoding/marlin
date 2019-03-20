@@ -1,6 +1,6 @@
 module Marlin
   module Persisters
-    class Memory < Base
+    class Memory < Marlin::Persister
       @@storage = {}
 
       def read(key)

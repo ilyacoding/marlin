@@ -1,4 +1,6 @@
 AUTOLOAD_DIRS = %w(
+  action.rb
+  persister.rb
   actions/*.rb
   persisters/*.rb
 )

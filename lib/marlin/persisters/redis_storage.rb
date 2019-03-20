@@ -2,7 +2,7 @@ require "redis"
 
 module Marlin
   module Persisters
-    class RedisStorage < Base
+    class RedisStorage < Marlin::Persister
       def read(key)
         redis.get(key.to_s)
       end
