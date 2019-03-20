@@ -1,6 +1,8 @@
+require "redis"
+
 module Marlin
   module Persisters
-    class Redis < Base
+    class RedisStorage < Base
       def read(key)
         redis.get(key.to_s)
       end
@@ -16,7 +18,7 @@ module Marlin
       private
 
       def redis
-        @redis ||= redis = Redis.new(url: ENV["REDIS_URL"])
+        @redis ||= Redis.new(url: "redis://localhost:6379")
       end
     end
   end
