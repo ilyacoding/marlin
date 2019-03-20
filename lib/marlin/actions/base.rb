@@ -1,7 +1,7 @@
 module Marlin
   module Actions
     class Base
-      def initialize(key, persister = Marlin::Persisters::Memory.new)
+      def initialize(key, persister = Marlin::Persisters::Redis.new)
         @key = key
         @persister = persister
       end
