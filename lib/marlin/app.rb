@@ -7,7 +7,7 @@ module Marlin
     KEYS_ROUTE = "/keys/:key"
 
     get "/" do
-      "Marlin Gem Homepage"
+      "Marlin Key-Value Storage"
     end
 
     get "/ping" do
@@ -15,7 +15,7 @@ module Marlin
     end
 
     put KEYS_ROUTE do
-      Marlin::Actions::SaveKey.new(params[:key]).call(params[:value])
+      Marlin::Actions::SaveKey.new(params[:key]).call(request.body.read)
     end
 
     get KEYS_ROUTE do
