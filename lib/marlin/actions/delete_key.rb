@@ -2,7 +2,9 @@ module Marlin
   module Actions
     class DeleteKey < Marlin::Action
       def call
-        @persister.delete(@key)
+        @persister.read(@key).tap do
+          @persister.delete(@key)
+        end
       end
     end
   end
