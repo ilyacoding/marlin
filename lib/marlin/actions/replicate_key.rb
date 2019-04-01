@@ -4,7 +4,7 @@ module Marlin
       def call(action)
         value = @persister.read(@key)
 
-        return unless ENV['slave_url']
+        return unless ENV['SLAVE_URL']
 
         RestClient.put(key_route, value) if action == :save
         RestClient.delete(key_route) if action == :delete
@@ -13,7 +13,7 @@ module Marlin
       private
 
       def key_route
-        [ENV['slave_url'], "/keys/", @key].join
+        [ENV['SLAVE_URL'], "/keys/", @key].join
       end
     end
   end
