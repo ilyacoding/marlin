@@ -19,4 +19,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'sinatra', '~> 2.0.5'
   s.add_dependency 'foreman', '~> 0.85.0'
   s.add_dependency 'redis', '~> 4.1.0'
+  s.add_dependency 'rest-client', '~> 2.0.2'
 end
