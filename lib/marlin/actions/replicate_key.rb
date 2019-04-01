@@ -1,3 +1,5 @@
+require 'rest-client'
+
 module Marlin
   module Actions
     class ReplicateKey < Marlin::Action
