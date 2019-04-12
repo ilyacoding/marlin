@@ -20,4 +20,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'foreman', '~> 0.85.0'
   s.add_dependency 'redis', '~> 4.1.0'
   s.add_dependency 'rest-client', '~> 2.0.2'
+  s.add_dependency 'connection_pool', '~> 2.2.2'
 end
