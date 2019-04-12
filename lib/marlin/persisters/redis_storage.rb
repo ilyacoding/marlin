@@ -1,24 +1,26 @@
 require "redis"
+require "connection_pool"
+REDIS = ConnectionPool.new(size: 15) { Redis.new }
 
 module Marlin
   module Persisters
     class RedisStorage < Marlin::Persister
       def read(key)
-        redis.get(key.to_s)
+        REDIS.with do |redis|
+          redis.get(key.to_s)
+        end
       end
 
       def write(key, value)
-        redis.set(key.to_s, value)
+        REDIS.with do |redis|
+          redis.set(key.to_s, value)
+        end
       end
 
       def delete(key)
-        redis.del(key.to_s)
-      end
-
-      private
-
-      def redis
-        @redis ||= Redis.new(url: ENV["REDIS_URL"])
+        REDIS.with do |redis|
+          redis.del(key.to_s)
+        end
       end
     end
   end
