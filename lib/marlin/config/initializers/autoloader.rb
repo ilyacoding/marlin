@@ -1,3 +1,6 @@
+require "redis"
+require "connection_pool"
+
 AUTOLOAD_DIRS = %w(
   action.rb
   persister.rb
