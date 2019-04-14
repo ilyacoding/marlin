@@ -1,3 +1,8 @@
+require "redis"
+require "connection_pool"
+
+REDIS ||= ConnectionPool.new(size: 15) { Redis.new }
+
 module Marlin
   module Persisters
     class RedisStorage < Marlin::Persister
