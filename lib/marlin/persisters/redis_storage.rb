@@ -1,6 +1,3 @@
-require "redis"
-require "connection_pool"
-
 module Marlin
   module Persisters
     class RedisStorage < Marlin::Persister
