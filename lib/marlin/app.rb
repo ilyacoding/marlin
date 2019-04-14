@@ -14,14 +14,12 @@ module Marlin
       "OK"
     end
 
-    if ENV['SLAVE_URL']
-      put KEYS_ROUTE do
-        Marlin::Actions::SaveKey.new(params[:key]).call(request.body.read)
-      end
+    put KEYS_ROUTE do
+      Marlin::Actions::SaveKey.new(params[:key]).call(request.body.read)
+    end
 
-      delete KEYS_ROUTE do
-        Marlin::Actions::DeleteKey.new(params[:key]).call
-      end
+    delete KEYS_ROUTE do
+      Marlin::Actions::DeleteKey.new(params[:key]).call
     end
 
     get KEYS_ROUTE do
