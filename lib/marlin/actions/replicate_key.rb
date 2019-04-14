@@ -10,12 +10,17 @@ module Marlin
 
         RestClient.put(key_route, value) if action == :save
         RestClient.delete(key_route) if action == :delete
+        RestClient.get(flush_route) if action == :flushall
       end
 
       private
 
       def key_route
         [ENV['SLAVE_URL'], "/keys/", @key].join
+      end
+
+      def flush_route
+        [ENV['SLAVE_URL'], "/flushall"].join
       end
     end
   end

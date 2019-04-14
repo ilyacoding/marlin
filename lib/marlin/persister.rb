@@ -9,5 +9,9 @@ module Marlin
     def write(key, value)
       raise NotImplementedError
     end
+
+    def flushall
+      raise NotImplementedError
+    end
   end
 end
