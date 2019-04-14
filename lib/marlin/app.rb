@@ -28,6 +28,10 @@ module Marlin
       Marlin::Actions::ReadKey.new(params[:key]).call
     end
 
+    get "/flushall" do
+      Marlin::Actions::FlushAll.new(nil).call
+    end
+
     require File.join(root, "/config/initializers/autoloader.rb")
   end
 end

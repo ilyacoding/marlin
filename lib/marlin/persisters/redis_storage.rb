@@ -1,6 +1,5 @@
 require "redis"
 require "connection_pool"
-REDIS = ConnectionPool.new(size: 15) { Redis.new }
 
 module Marlin
   module Persisters
@@ -20,6 +19,12 @@ module Marlin
       def delete(key)
         REDIS.with do |redis|
           redis.del(key.to_s)
+        end
+      end
+
+      def flushall
+        REDIS.with do |redis|
+          redis.flushall
         end
       end
     end
